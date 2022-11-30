@@ -1,4 +1,4 @@
-/****************** YOUR NAME: 
+/****************** YOUR NAME: Abel Chen
 
 The instructions describe the missing logic that is needed; you will translate these into JavaScript in the places indicated.
 
@@ -10,10 +10,8 @@ You are encouraged to use the provided naming convention for ease of review.
 /* create variables to hold the values for modelName and duration */
 
 // INSERT YOUR CODE HERE
-
-
-
-
+let modelName = "XYZ";
+let duration = 0.0;
 
 /****************** helper function ******************/
 /* create a function called recalculate() which will
@@ -26,10 +24,15 @@ You are encouraged to use the provided naming convention for ease of review.
 */
 
 // INSERT YOUR CODE HERE
-
-
-
-
+function recalculate() {
+    let costLabel = document.getElementById("calculated-cost");
+    if (modelName == "XYZ"){
+        costLabel.innerHTML = duration * 100;
+    }
+    else if(modelName == "CPRG"){
+        costLabel.innerHTML = duration * 213;
+    }
+}
 
 
 /****************** model button logic ******************/
@@ -42,14 +45,21 @@ You are encouraged to use the provided naming convention for ease of review.
     - if modelName is currently "CPRG", change the value of modelName to "XYZ", and change the innerHTML of the model-text span element to "Model XYZ"
     - then, recalculate() the total cost.
 - finally, uncomment the following line of JavaScript to have this function run automatically whenever the pseudo-button is clicked: */
-    // modelButton.addEventListener("click", changeModel);
+document.getElementById("model-button").addEventListener("click", changeModel);
 
 // INSERT YOUR CODE HERE
-
-
-
-
-
+function changeModel() {
+    if (modelName == "XYZ"){
+        modelName = "CPRG";
+        document.getElementById("model-text").innerHTML = "Model CPRG";
+        recalculate();
+    }
+    else{
+        modelName = "XYZ";
+        document.getElementById("model-text").innerHTML = "Model XYZ";
+        recalculate();
+    }
+}
 
 
 /****************** duration button logic ******************/
@@ -62,8 +72,10 @@ You are encouraged to use the provided naming convention for ease of review.
         - recalculate() the total cost/
     - finally, attach this function to the "Change Duration" pseudo-button, so it runs whenever the button is clicked.
 */
-
+document.getElementById("duration-button").addEventListener("click", changeDuration);
 // INSERT YOUR CODE HERE
-
-
-
+function changeDuration() {
+    duration ++;
+    document.getElementById("duration-text").innerHTML = duration;
+    recalculate();
+}
