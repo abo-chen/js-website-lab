@@ -10,8 +10,10 @@ You are encouraged to use the provided naming convention for ease of review.
 /* create variables to hold the values for modelName and duration */
 
 // INSERT YOUR CODE HERE
-let modelName = "XYZ";
-let duration = 0.0;
+
+var modelName = "XYZ";
+var duration = 0.0;
+
 
 /****************** helper function ******************/
 /* create a function called recalculate() which will
@@ -45,8 +47,9 @@ function recalculate() {
     - if modelName is currently "CPRG", change the value of modelName to "XYZ", and change the innerHTML of the model-text span element to "Model XYZ"
     - then, recalculate() the total cost.
 - finally, uncomment the following line of JavaScript to have this function run automatically whenever the pseudo-button is clicked: */
-document.getElementById("model-button").addEventListener("click", changeModel);
-
+if (document.getElementById("model-button") != null) {
+    document.getElementById("model-button").addEventListener("click", changeModel);
+}
 // INSERT YOUR CODE HERE
 function changeModel() {
     if (modelName == "XYZ"){
@@ -72,10 +75,12 @@ function changeModel() {
         - recalculate() the total cost/
     - finally, attach this function to the "Change Duration" pseudo-button, so it runs whenever the button is clicked.
 */
-document.getElementById("duration-button").addEventListener("click", changeDuration);
+if (document.getElementById("duration-button") != null){
+    document.getElementById("duration-button").addEventListener("click", changeDuration);
+}
 // INSERT YOUR CODE HERE
 function changeDuration() {
-    duration ++;
+    duration = prompt("Please input new duration: ");
     document.getElementById("duration-text").innerHTML = duration;
     recalculate();
 }
