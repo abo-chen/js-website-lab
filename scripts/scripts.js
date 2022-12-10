@@ -28,11 +28,11 @@ var duration = 0.0;
 // INSERT YOUR CODE HERE
 function recalculate() {
     let costLabel = document.getElementById("calculated-cost");
-    if (modelName == "XYZ"){
-        costLabel.innerHTML = duration * 100;
+    if (modelName === "XYZ"){
+        costLabel.innerHTML = (duration * 100).toFixed(2).toString();
     }
-    else if(modelName == "CPRG"){
-        costLabel.innerHTML = duration * 213;
+    else if(modelName === "CPRG"){
+        costLabel.innerHTML = (duration * 213).toFixed(2).toString();
     }
 }
 
@@ -52,7 +52,7 @@ if (document.getElementById("model-button") != null) {
 }
 // INSERT YOUR CODE HERE
 function changeModel() {
-    if (modelName == "XYZ"){
+    if (modelName === "XYZ"){
         modelName = "CPRG";
         document.getElementById("model-text").innerHTML = "Model CPRG";
         recalculate();
